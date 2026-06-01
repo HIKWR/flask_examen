@@ -1,0 +1,14 @@
+{% extends 'layout.html' %}
+{% block title %}Register{% endblock %}
+{% block body %}
+<h1>Register</h1>
+<form action="{{ url_for('register_submit') }}" method="post">
+    <label>Nombre de usuario</label>
+    <input name="username" type="text" placeholder="Nombre de usuario" required>
+    <label>Correo electrónico</label>
+    <input name="email" type="email" placeholder="email" required>
+    <label>Contraseña</label>
+    <input name="pass" type="password" placeholder="Contraseña" required>
+    <button type="submit">Registrarse</button>
+</form>
+{% endblock %}

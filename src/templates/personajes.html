@@ -1,0 +1,17 @@
+{% extends 'layout.html' %}
+{% block title %}Personajes{% endblock %}
+{% block body %}
+    <form action="{{ url_for('favoritos_submit') }}" method="post">
+        {% if session.get('lista_char')%}
+            {% for char in session.get('lista_char') %}
+                    <h3>Nombre</h3>
+                    <input name="name" value="{{ char.get('name') }}">
+                    <h3>Genero</h3>
+                    <input name="species" value="{{ char.get('gender') }}">
+                    <input name="image" value="{{ char.get('image') }}">
+                    <input name="check" type="checkbox">
+            {% endfor %}
+            <button type="submit">Guardar favoritos</button>
+        {% endif %}
+    </form>
+{% endblock %}

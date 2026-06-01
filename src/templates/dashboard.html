@@ -1,0 +1,18 @@
+{% extends 'layout.html' %}
+{% block title %}Dashboard{% endblock %}
+{% block body %}
+<h1>Bienvenido usuario {{ session.get('user_name') }}</h1>
+<h2>Fecha de registro {{ session.get('register_date') }}</h2>
+<h2>Último registro {{ session.get('last_login') }}</h2>
+    {% if session.get('lista_char')%}
+        {% for fav in session.get('lista_fav') %}
+                <h3>Nombre</h3>
+                <strong><h3>{{ fav.get('name') }}</h3></strong>
+                <h3>Especie</h3>
+                <strong><h3>{{ fav.get('species') }}</h3></strong>
+                <h3>Genero</h3>
+                <strong><h3>{{ fav.get('gender') }}</h3></strong>
+                <img src="{{ fav.get('image') }}"
+        {% endfor %}
+    {% endif %}
+{% endblock %}
